@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cart</title>
+
+    <link rel="stylesheet" href="css/cart.css "/>
+
+    <link
+            rel='stylesheet'
+            href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'
+    />
+
+
+
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* يجعل الصفحة تمتلك الحد الأدنى من الارتفاع على الشاشة بحيث يمكن توسيعها */
+    }
+
+    .container {
+        flex: 1; /* يأخذ المساحة المتاحة الكاملة في الارتفاع */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .header {
+        background-color: #008CBA;
+        padding: 30px 0;
+        color: white;
+        text-align: center;
+    }
+
+    .nav {
+        background-color: #333;
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .nav a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        display: inline-block;
+    }
+
+    .nav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead th {
+        background-color: #ccc;
+        padding: 10px;
+    }
+
+    tbody td {
+        padding: 10px;
+    }
+
+
+    .remove {
+        background-color: red;
+        color: white;
+        padding: 10px; /* Increase padding for a larger button */
+        border: none;
+        cursor: pointer;
+    }
+
+    .remove:hover {
+        background-color: darkred; /* Change color on hover */
+    }
+
+
+    table img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+</style>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Welcome to Cart Page</h1>
+    </div>
+
+    <div class="nav">
+        <a href="php/home_page.php">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <img id="cartImage"  alt="" width="50px" height="50px">
+        </td>
+        <td>J.Crew Mercantile Women's Short-Sleeve Mabori </td>
+        <td>$110</td>
+        <td>3</td>
+        <td>$220</td>
+        <td><button class="remove" onclick="removeProduct(this)">Remove</button></td>
+    </tr>
+    <tr>
+        <td><img src="img/t22.jpg" alt="Product image"></td>
+        <td>Amazon Essentials Women's Tank</td>
+        <td>$110</td>
+        <td>2</td>
+        <td>$220</td>
+        <td><button class="remove" onclick="removeProduct(this)">Remove</button></td>
+    </tr>
+    <tr>
+        <td><img src="img/t1.jpg" alt="Product image"></td>
+        <td>Amazon Brand - Daily Ritual Women's Jersey</td>
+        <td>$110</td>
+        <td>1</td>
+        <td>$110</td>
+        <td><button class="remove" onclick="removeProduct(this)">Remove</button></td>
+    </tr>
+    </tbody>
+
+</table>
+</div>
+
+
+<script>
+    function removeProduct(button) {
+        // Get the row that contains the clicked button
+        var row = button.parentNode.parentNode;
+
+        // Remove the row from the table
+        row.parentNode.removeChild(row);
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Check if there's a product image in sessionStorage to display on the wishlist page
+        const cartImageContainer = document.getElementById('cartImage');
+        const cartImageSrc = sessionStorage.getItem('cartImage');
+
+        if (cartImageSrc) {
+            // Display the product image in the wishlist
+            cartImageContainer.src = cartImageSrc;
+        }
+    });
+
+
+
+</script>
+<script>
+    function addToCart() {
+        // Get the product image source
+        const productImageSrc = document.getElementById('productImage').src;
+
+        // Save the product image source to sessionStorage
+        sessionStorage.setItem('cartImage', productImageSrc);
+
+        // Redirect to the cart page
+        window.location.href = 'cart.html';
+    }
+
+    // Check if there's a product image in sessionStorage to display on the cart page
+    const cartImageContainer = document.getElementById('cartImageContainer1');
+    const cartImageSrc = sessionStorage.getItem('cartImage');
+
+    if (cartImageSrc) {
+        // Display the product image in the cart
+        cartImageContainer.innerHTML = `<img src="${cartImageSrc}" alt="Product in Cart">`;
+    }
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Check if there's a product image in sessionStorage to display on the wishlist page
+        const cartImageContainer = document.getElementById('cartImage');
+        const cartImageSrc = sessionStorage.getItem('cartImage');
+
+        if (cartImageSrc) {
+            // Display the product image in the wishlist
+            cartImageContainer.src = cartImageSrc;
+        }
+    });
+</script>
+</body>
+</html>

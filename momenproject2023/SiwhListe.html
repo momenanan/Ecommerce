@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Home Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* يجعل الصفحة تمتلك الحد الأدنى من الارتفاع على الشاشة بحيث يمكن توسيعها */
+    }
+
+    .container {
+      flex: 1; /* يأخذ المساحة المتاحة الكاملة في الارتفاع */
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .header {
+      background-color: #008CBA;
+      padding: 30px 0;
+      color: white;
+      text-align: center;
+    }
+
+    .nav {
+      background-color: #333;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      display: inline-block;
+    }
+
+    .nav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .section {
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .btn-remove, .btn-add-to-cart {
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .footer {
+      background-color: #008CBA;
+      padding: 15px 0;
+      color: white;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Welcome to WishList Page</h1>
+  </div>
+
+  <div class="nav">
+    <a href="php/home_page.php">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="section">
+    <table>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Action</th>
+        <th>Remove</th>
+      </tr>
+      <tr>
+        <td>
+          <img id="wishlistImage"  alt="" width="50px" height="50px">
+        </td>
+        <td>Colorful Pattern Shirts</td>
+        <td>$238.85</td>
+        <td><button class="btn-add-to-cart">Add to Cart</button></td>
+        <td><button class="btn-remove">Remove</button></td>
+      </tr>
+
+      <tr>
+        <td>
+          <img id="wishlistImage1"  alt="" width="50px" height="50px">
+        </td>
+        <td></td>
+        <td></td>
+        <td><button class="btn-add-to-cart">Add to Cart</button></td>
+        <td><button class="btn-remove">Remove</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+
+  <p>Copyright &copy; 2022 My Home Page</p>
+</div>
+
+<script>
+  function addToWishlist() {
+    // Get the product image source
+    const productImageSrc = document.getElementById('productImage').src;
+
+    // Save the product image source to sessionStorage
+    sessionStorage.setItem('wishlistImage', productImageSrc);
+
+    // Redirect to the wishlist page
+    window.location.href = 'home_page.html';
+  }
+
+  // Check if there's a product image in sessionStorage to display on the wishlist page
+  const wishlistImageContainer = document.getElementById('wishlistImageContainer1');
+  const wishlistImageSrc = sessionStorage.getItem('wishlistImage');
+
+  if (wishlistImageSrc) {
+    // Display the product image in the wishlist
+    wishlistImageContainer.innerHTML = `<img src="${wishlistImageSrc}" alt="Product in Wishlist">`;
+  }
+
+
+
+
+
+
+  document.querySelectorAll('.btn-remove').forEach(button => {
+    button.addEventListener('click', () => {
+      button.closest('tr').remove();
+    });
+  });
+
+</script>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Check if there's a product image in sessionStorage to display on the wishlist page
+    const wishlistImageContainer = document.getElementById('wishlistImage');
+    const wishlistImageSrc = sessionStorage.getItem('wishlistImage');
+
+    if (wishlistImageSrc) {
+      // Display the product image in the wishlist
+      wishlistImageContainer.src = wishlistImageSrc;
+    }
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Check if there's a product image in sessionStorage to display on the wishlist page
+    const wishlistImageContainer = document.getElementById('wishlistImage1');
+    const wishlistImageSrc = sessionStorage.getItem('wishlistImage1');
+
+    if (wishlistImageSrc) {
+      // Display the product image in the wishlist
+      wishlistImageContainer.src = wishlistImageSrc;
+    }
+  });
+</script>
+
+
+</body>
+</html>

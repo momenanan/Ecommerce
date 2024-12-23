@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <link rel="stylesheet" href="../css/payment.css" />
+  <!-- Add your other stylesheets and scripts here -->
+  <style>
+    /* Add your existing CSS styles and additional styles for payment page */
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .payment-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+  </style>
+</head>
+
+<body>
+<header class="header">
+  <div class="header__top">
+    <!-- Add your header content here -->
+  </div>
+</header>
+
+<div class="payment-container">
+  <h2>Payment Details</h2>
+  <form action="process_payment.php" method="post">
+    <!-- Add hidden fields or any additional information you need for payment processing -->
+    <label for="card-number">Card Number:</label>
+    <input type="text" id="card-number" name="cardNumber" required>
+
+    <label for="expiry-date">Expiry Date:</label>
+    <input type="text" id="expiry-date" name="expiryDate" placeholder="MM/YYYY" required>
+
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" name="cvv" required>
+
+    <button type="submit">Pay Now</button>
+  </form>
+</div>
+
+<!-- Add your other HTML content and scripts here -->
+
+</body>
+
+</html>

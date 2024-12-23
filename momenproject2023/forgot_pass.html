@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .content-section {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .box {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+  .password-toggle {
+    cursor: pointer;
+  }
+
+  button {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #error-message {
+    color: red;
+    margin-top: 10px;
+  }
+
+</style>
+</head>
+<body>
+
+
+<section id="change-password" class="content-section">
+    <div class="box">
+        <h2>Change Password</h2>
+        <form method="post" action="php/forgotpass.php">
+            <table>
+
+                <tr>
+                    <td><label for="old-email1">Email:</label></td>
+                    <td><input type="email" id="old-email1" name="old_email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="new-password">New Password:</label></td>
+                    <td><input type="password" id="new-password" name="new_password" required></td>
+                    <td><span class="password-toggle" onclick="togglePasswordVisibility('new_password')">
+            <img src="img/show-password.png" alt="Toggle Password" onclick="handleChangePassword()" width="20" height="20">
+          </span></td>
+                </tr>
+                <tr>
+                    <td><label for="confirm-password">Confirm New Password:</label></td>
+                    <td><input type="password" id="confirm-password" name="confirm_password" required></td>
+                    <td><span class="password-toggle" onclick="togglePasswordVisibility('confirm_password')">
+            <img src="img/show-password.png" alt="Toggle Password" onclick="handleChangePassword()" width="20" height="20">
+          </span></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><button type="submit" onclick="handleChangePassword()">Change Password</button></td><br><br>
+
+                </tr>
+            </table>
+            <p id="error-message"></p>
+        </form>
+    </div>
+</section>
+
+
+<script>
+  function togglePasswordVisibility(inputId) {
+    const passwordInput = document.getElementById(inputId);
+    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+  }
+
+  function showSection(sectionId) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+      section.style.display = 'none';
+    });
+
+    // Show the selected section
+    const selectedSection = document.getElementById(sectionId);
+    selectedSection.style.display = 'block';
+  }
+
+
+  function handleChangePassword() {
+      const email = document.getElementById('old-email1').value; // corrected the email field id
+      const newPassword = document.getElementById('new-password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const errorMessage = document.getElementById('error-message');
+
+      if (email === '' || newPassword === '' || confirmPassword === '') {
+          errorMessage.innerText = 'Please fill in all fields.';
+      } else if (newPassword !== confirmPassword) {
+          errorMessage.innerText = 'New password and confirm password do not match.';
+      } else {
+          // TODO: Add logic to handle password change (send request to server, etc.)
+          errorMessage.innerText = 'Password changed successfully! Redirecting to login...';
+          // Redirect to the login page after a short delay (e.g., 2 seconds)
+          setTimeout(function () {
+              window.location.href = 'login.html'; // Replace 'login.html' with your actual login page
+          }, 2000);
+      }
+  }
+</script>
+</body>
+</html>

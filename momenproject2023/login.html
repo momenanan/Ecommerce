@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!--author:starttemplate-->
+<!--reference site : starttemplate.com-->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords"
+        content="unique login form,leamug login form,boostrap login form,responsive login form,free css html login form,download login form">
+  <meta name="author" content="leamug">
+  <title>Unique Login Form | Bootstrap Templates</title>
+  <link href="css/login.css" rel="stylesheet" id="style">
+  <!-- Bootstrap core Library -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!-- Google font -->
+  <!-- Font Awesome-->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+
+  <style>
+    /*=============== GOOGLE FONTS ===============*/
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+    /*=============== VARIABLES CSS ===============*/
+    :root {
+      /*========== Colors ==========*/
+      /*Color mode HSL(hue, saturation, lightness)*/
+      --white-color: #007bff;
+      --black-color: hsl(0, 0%, 0%);
+
+      /*========== Font and typography ==========*/
+      /*.5rem = 8px | 1rem = 16px ...*/
+      --body-font: "Poppins", sans-serif;
+      --h1-font-size: 2rem;
+      --normal-font-size: 1rem;
+      --small-font-size: .813rem;
+    }
+
+    /*=============== BASE ===============*/
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+
+    .login__box i {
+      font-size: 1.25rem;
+    }
+
+    .login__check{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .login__check {
+      margin-bottom: 1rem;
+      font-size: var(--small-font-size);
+    }
+
+
+    .login__forgot {
+      color: var(--white-color);
+      font-size: 16px;
+    }
+
+    .login__forgot:hover {
+      text-decoration: underline;
+    }
+
+    .login__register {
+      font-size: var(--small-font-size);
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .login__register a {
+      color: var(--white-color);
+      font-weight: 500;
+    }
+
+    .login__register a:hover {
+      text-decoration: underline;
+    }
+
+    /*=============== BREAKPOINTS ===============*/
+    body,
+    input,
+    button {
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+
+
+    .shop{
+      color: #004080;
+
+    }
+
+  </style>
+
+
+
+
+</head>
+<body>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-5 col-md-4 text-center">
+      <h1 class='text-white'>Welcome to my shop</h1>
+      <div class="form-login"></br>
+        <h4>Secure Login</h4>
+        </br>
+        <form action="php/login.php" method="POST">
+        <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" name="username"/>
+        </br></br>
+        <input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" name="password"/>
+        </br></br>
+        <div class="wrapper">
+                        <span class="group-btn">
+                            <button class="btn btn-danger btn-md"  name="btn_login">login <i class="fa fa-sign-in"></i></button><br>
+                        </span>
+        </div>
+          <div class="login__check">
+            <a href="forgot_pass.html" class="login__forgot">Forgot Password?</a>
+          </div>
+          <div class="login__register">
+            Don't have an account? <a href="sign-up.html">Register</a></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </br></br></br>
+  <!--footer-->
+ <div class="footer text-white text-center"><br><br><br>
+   <center> <h1><p class="shop">© ADHAM AND MOMEN SHOP </p></h1></center>
+  </div>
+  <!--//footer-->
+</div>
+</body>
+</html>
